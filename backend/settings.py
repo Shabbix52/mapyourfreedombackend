@@ -152,7 +152,7 @@ DJOSER = {
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "https://mapyourfreedom.com",
+    "https://demo.mapyourfreedom.com","https://mapyourfreedom.com"
 ]
 
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
