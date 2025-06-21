@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['backend.mapyourfreedom.com', '24.144.97.249', 'demo.mapyourfreedom.com']
+ALLOWED_HOSTS = ['backend.mapyourfreedom.com', '24.144.97.249', 'mapyourfreedom.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -152,7 +152,6 @@ DJOSER = {
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "https://demo.mapyourfreedom.com",
     "https://mapyourfreedom.com",
 ]
 

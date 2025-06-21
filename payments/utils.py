@@ -4,7 +4,7 @@ import os
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:5173')
+FRONTEND_URL = os.getenv('FRONTEND_URL')
 
 success_url = f'{FRONTEND_URL}/user-profile?result=success'
 cancel_url = f'{FRONTEND_URL}/user-profile?result=fail'
@@ -29,8 +29,8 @@ def create_checkout_session(payment_id, book):
                 },
             ],
             mode='payment',
-            success_url=success_url,  # <-- Localhost for success
-            cancel_url=cancel_url,      # <-- Localhost for cancel
+            success_url=success_url,  
+            cancel_url=cancel_url,      
             client_reference_id=payment_id
         )
         return checkout_session
