@@ -63,7 +63,7 @@ urlpatterns = [
     path('api/contact/', include('contact.urls')),
     path('api/subscribe/', include('subscriber.urls')),
     path('api/coaching/', include('Coaching.urls')),
-    path('__debug__/', include('debug_toolbar.urls')),
+    #path('__debug__/', include('debug_toolbar.urls')),
     # Djoser authentication URLs
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
