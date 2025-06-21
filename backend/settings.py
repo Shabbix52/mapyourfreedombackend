@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend.mapyourfreedom.com', '24.144.97.249']
+ALLOWED_HOSTS = ['backend.mapyourfreedom.com', '24.144.97.249', 'demo.mapyourfreedom.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -152,7 +152,7 @@ DJOSER = {
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+    "https://demo.mapyourfreedom.com",
     "https://mapyourfreedom.com",
 ]
 
@@ -169,6 +169,6 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = 'yokira52@gmail.com'
 
 # Security for production
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
