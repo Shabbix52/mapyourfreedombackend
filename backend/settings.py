@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'backend.mapyourfreedom.com',
@@ -156,7 +156,9 @@ DJOSER = {
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "https://demo.mapyourfreedom.com","https://mapyourfreedom.com"
+    "http://localhost:5173",
+    "https://demo.mapyourfreedom.com",
+    "https://mapyourfreedom.com",
 ]
 
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
@@ -172,9 +174,9 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = 'yokira52@gmail.com'
 
 # Security for production
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 CSRF_TRUSTED_ORIGINS = [
     "https://mapyourfreedom.com",
@@ -182,9 +184,25 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 REST_FRAMEWORK = {
-    # ...other DRF settings if you have them...
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
     'DEFAULT_THROTTLE_RATES': {
-        'subscriber_submit': '10/hour',  # adjust as needed
-        'contact_submit': '10/hour',     # adjust as needed
+        'subscriber_submit': '10/hour',
+        'contact_submit': '10/hour',
     },
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
 }

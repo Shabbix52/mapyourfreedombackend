@@ -58,7 +58,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('api/blog/', include('blog.urls')),
     path('api/contact/', include('contact.urls')),
     path('api/subscribe/', include('subscriber.urls')),
