@@ -29,7 +29,13 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['backend.mapyourfreedom.com', '24.144.97.249', 'mapyourfreedom.com']
+ALLOWED_HOSTS = [
+    'backend.mapyourfreedom.com',
+    '24.144.97.249',
+    'mapyourfreedom.com',
+    '127.0.0.1',
+    'localhost',
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -169,6 +175,11 @@ ADMIN_EMAIL = 'yokira52@gmail.com'
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://mapyourfreedom.com",
+    "https://demo.mapyourfreedom.com",
+]
 
 REST_FRAMEWORK = {
     # ...other DRF settings if you have them...
